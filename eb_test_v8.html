@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Exor's Dungeon - EarthBound</title>
+
+<style>
+body {
+    background: #000;
+    color: #ddd;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+/* ====== LAYOUT ====== */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 20px;
+}
+
+.feature-media {
+    margin-bottom: 15px;
+    border: 1px solid #333;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.feature-media img {
+    width: 100%;
+    height: auto;
+    max-height: 320px;
+    object-fit: contain; /* IMPORTANT */
+}
+
+/* ====== SIDEBAR ====== */
+.sidebar {
+    background: #111;
+    border: 1px solid #333;
+    padding: 15px;
+}
+
+.thumbnail {
+    width: 100px;
+    height: 100px;
+    background: #222;
+    border: 1px solid #444;
+    margin-bottom: 15px;
+}
+
+.boxart {
+    width: 100%;
+    border: 1px solid #444;
+    margin-bottom: 5px;
+}
+
+.credit {
+    font-size: 11px;
+    color: #888;
+    margin: 5px 0 15px 0;
+    text-align: center;
+}
+
+.meta {
+    background: #181818;
+    border: 1px solid #333;
+    padding: 6px;
+    margin-bottom: 8px;
+}
+
+.meta span {
+    display: block;
+    color: #aaa;
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+
+.meta .value:empty {
+    display: none;
+}
+
+.meta:has(.value:empty) {
+    display: none;
+}
+
+.meta img {
+    display: block;
+    margin: 5px auto 0 auto;
+}
+
+/* ====== MAIN CONTENT ====== */
+.main {
+    background: #111;
+    border: 1px solid #333;
+    padding: 20px;
+}
+
+h1 {
+    color: #fff;
+    margin-top: 0;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.rating {
+    display: inline-block;
+    background: #222;
+    border: 1px solid #555;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #0f0;
+}
+
+/* ====== TEXT CONTENT ====== */
+.section {
+    margin-bottom: 25px;
+}
+
+.section h2 {
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+    color: #ccc;
+}
+
+/* ====== GALLERY ====== */
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+/* Each screenshot + caption block */
+.shot {
+    display: inline-block;     /* KEY: shrink-wrap to image */
+    max-width: 100%;           /* never exceed container */
+    background: #000;
+    border: 1px solid #333;
+    padding: 4px;
+}
+
+/* Image: true resolution, never upscale */
+.shot img {
+    display: block;
+    max-width: 800px;           /* shrink if needed */
+    height: auto;
+}
+
+/* Caption always matches image width */
+.caption {
+    margin-top: 5px;
+    font-size: 12px;
+    color: #aaa;
+    line-height: 1.3;
+
+    width: 100%;               /* match image width */
+    overflow-wrap: break-word;
+    text-align: left;
+}
+
+/* ====== LINKS ====== */
+a {
+    color: #6cf;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ====== OPTIONAL TAG STYLE ====== */
+.tag {
+    display: inline-block;
+    background: #222;
+    border: 1px solid #444;
+    padding: 3px 6px;
+    margin: 2px;
+    font-size: 12px;
+}
+
+/* ====== FOOTERS ====== */
+.footer {
+    margin-top: 40px;
+    border-top: 1px solid #333;
+    background: #000;
+    padding: 15px 0;
+    font-size: 13px;
+}
+
+.footer-inner {
+    max-width: 1000px;
+    margin: auto;
+    padding: 0 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: #777;
+}
+
+.footer a {
+    color: #6cf;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive tweak */
+@media (max-width: 700px) {
+    .footer-inner {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+<div class="grid">
+
+<!-- ===== SIDEBAR ===== -->
+<div class="sidebar">
+
+<img class="thumbnail" src="../_gamethumbs/mother2thumb.png"></img>
+
+
+
+<div class="meta"><span>Genre</span><div class="value">JRPG</div></div>
+<div class="meta"><span>Developer</span><div class="value">Ape</div></div>
+<div class="meta"><span>Publisher</span><div class="value">Nintendo</div></div>
+<div class="meta"><span>Director</span><div class="value">Shigesato Itoi</div></div>
+<div class="meta"><span>Release Date</span><div class="value">June 5 1995 (US)</div></div>
+<div class="meta"><span>System</span><div class="value">Super NES</div></div>
+
+<div class="meta">
+<span>Alternate Names</span><div class="value">Mother 2 (Japan)</div>
+</div>
+<div class="meta">
+<span>Additional Developer</span><div class="value">HAL Laboratory</div>
+</div>
+
+
+
+<div class="meta">
+<span>Buy / Info</span>
+<div class="value"></div>
+</div>
+
+<!--
+// do not use //
+<div class="meta">
+<span>My Rating</span>
+<div class="value"><img src="../_ratings/good.gif"></div>
+</div>
+-->
+
+<div class="meta">
+<span>ESRB Rating</span>
+<div class="value">Kids to Adults</div>
+</div>
+
+<div class="meta">
+<span>Number of Players</span>
+<div class="value">1 Player</div>
+</div>
+
+
+<div class="meta">
+<span>Wikipedia</span>
+<div class="value"><a href="http://en.wikipedia.org/wiki/EarthBound">View Article</a></div>
+</div>
+
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="main">
+
+<h1>EarthBound</h1>
+<div class="feature-media">
+    <img src="eb_box.jpg" alt="Game Media">
+</div>
+<div class="credit">Box Art Credit: Free Cheese Game Club</div>
+
+
+
+<div class="section">
+<h2>Overview</h2>
+<p><I>EarthBound</I> isn't the best Super NES JRPG (far from it&mdash;strong competition), but it's charming and I've replayed it multiple times, something I can't really say for other JRPGs (except <I>Super Mario RPG</I>).</p>
+</div>
+
+<div class="section">
+<h2>Review</h2>
+
+<p>Because <i>EarthBound</i> (or <i>Mother 2</i>) has been so mainstreamed (after all, Nintendo of America finally added it to the Wii U Virtual Console), it's difficult to call it a "cult classic" anymore, but that wasn't the case back in the day. Rather than give some sort of review that you've heard elsewhere, it's the year 2015 now and EarthBound was released 20 years ago, I'm going to tell you how it affected me. This review does contain some minor spoilers, but not much.</p>
+<p>I first played EarthBound back in late 2004. Now, granted, I did have some cheats in effect to prevent dying (I used an emulator), but even so, it was an amazing and memorable experience, from living marionette dolls in Threed soon segueing into the brief segment of how Jeff escaped from the boarding house and came to join the heroes, and continuing onto Magicant, the world of Ness' past and present, and frankly, I think pajamas over nudity was the better choice. I think that part of what made it appealing in the first place, or maybe was just a coincidence, was that I was about Ness' age at the time. Now, I tried <i>Chrono Trigger</i> and <i>Final Fantasy VI</i> in the same timeframe and those had similar sticking features to me (namely the music and themes, but I never progressed very far at all in either one, the prison and Figaro Castle, respectively), but for <i>EarthBound</i>, man, I was there (including mandatory <a href="http://starmen.net">Starmen.net</a> membership, the site that helped <i>EarthBound</i> rise back to prominence). I mean, I never imported expensive Mr. Saturn plushies from Japan, but <i>EarthBound</i> would remain on my top five for a long period of time.</p>
+<p>Fast forward five years, and I decide to start playing <i>EarthBound</i> again, but this time on the big screen&mdash;a Wii running homebrew! And this time, no cheats! That's when things fell apart. It wasn't the running of the software (there was no way for Virtual Console, of course), which ran admirably, is I had to come to grips how screwy the difficulty was. <a href="http://tvtropes.org/pmwiki/pmwiki.php/Main/SchizophrenicDifficulty">At times it was ridiculously easy and at times it was crazy difficult</a>. (TVTropes, which I linked to, put it this way: "It starts out fairly challenging, gets extremely easy after Happy Happy, gets hard when you reach the mines and stays hard all the way through Moonside, drops insanely low all the way through Scaraba, gets a bit more challenging in Deep Darkness, and finally gets pretty nasty once you reach Fire Spring through the end.") The final straw came in the last "dungeon", where waves of the most highly-powered Starmen would come in waves to attack you before the final boss. Basically what it amounted to was grinding. Now I've heard some people tell me that "Oh, you just didn't use your PSI attacks more effectively, at your level, you should have wiped 'em out" (those weren't their exact words, but that seemed to be the sentiment), but those attacks were not unlimited and I was trying to save them for the final boss, which I did end up beating for a long and fairly satisfying ending (you actually took Paula home and then returning home yourself instead of just cutting to the credits).<p>
+<p><i>EarthBound</i> ends on a cliffhanger, which would lead to years of frustration by fans (I think I first found about <i>EarthBound</i> in a June 2001 issue of Nintendo Power, where fans sent in a lot of <i>EarthBound</i> fan art that month, probably because the cancellation of <i>EarthBound 64</i> was fresh on everyone's minds. Anyway, I do hope to intend to sit down and play <i>Mother 3</i> sometime, <i>EarthBound</i>'s sequel, and write a full review, mostly focusing on what could have been for <i>Mother 3</i>.</p>
+</div>
+
+<div class="section">
+<h2>Player Notes</h2>
+<p>The review was originally written April 21, 2015. In January 2024 it was somewhat edited to remove some irrelevant information. It has been played through again on a 3DS circa 2018, with <i>Mother 3</i> being completed the following year and a <a href="http://www.carbon-izer.com/games/mother3/mother3.html">review written</a>. In the old version of this review I noted my favorite enemy was Mr. Molecule (he just looks cool), as well giving it a "GOOD" rating (basically 4/5).</p>
+</div>
+
+<div class="section">
+<h2>Port & Rerelease Notes</h2>
+<p><i>EarthBound</i>, like many Super NES games, received a Game Boy Advance port as <I>Mother 1 + 2</i> with NES game <I>Mother</i> along for the ride. Despite the fact that the game was localized back in 1995 nobody has bothered making a translation patch for it.</p>
+</div>
+
+<!--
+<div class="section">
+<h2>Additional Content</h2>
+<p>EarthBound doesn't have this</p>
+</div>
+-->
+<div class="section">
+<h2>Screenshots</h2>
+
+<div class="gallery">
+
+  <figure class="shot">
+    <img src="runaway5.png" alt="">
+    <figcaption class="caption">
+      Nintendo can't count. Oh gosh oh gosh oh gosh please work this time
+    </figcaption>
+  </figure>
+
+  <figure class="shot">
+    <img src="edisnoom.png" alt="">
+    <figcaption class="caption">
+      This game gets VERY weird at times.
+    </figcaption>
+  </figure>
+
+</div>
+
+<div class="section">
+<h2>Recommended Guide</h2>
+<P>If you have the Player's Guide that's the first choice, but the way it's formatted I wouldn't recommend it if you don't have a physical copy. Plus it has <a href="https://starmen.net/mother2/gameinfo/guideerrors/">a number of typos</a> and says the Kraken can drop the Gutsy Bat, when in reality only the Bionic Kraken (later in the game) can. Overall, I'd recommend the <a href="http://walkthrough.starmen.net/earthbound/">Starmen.net EarthBound walkthrough</a> as it is print-friendly and addresses some of the things you might need to watch out for (like getting the Sword of Kings).</p>
+</div>
+
+</div>
+</div>
+</div>
+<footer class="footer">
+    <div class="footer-inner">
+
+        <div class="footer-left">
+            © 2015–2026 Carbon-izer.com
+        </div>
+<!--
+        <div class="footer-center">
+            <a href="javascript:history.back()">← Back</a>
+        </div>
+-->
+        <div class="footer-right">
+            <a href="http://www.carbon-izer.com/games/exor.html">Exor's Dungeon</a> |
+            <a href="../index-games.html">Game List</a>
+        </div>
+
+    </div>
+</footer>
+</body>
+</html>
+
